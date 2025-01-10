@@ -4,8 +4,8 @@ import sglang as sgl
 model_path = "deepseek-ai/deepseek-coder-33b-instruct"
 
 # 初始化模型
-sgl.set_default_backend("vllm")
-llm = sgl.Runtime(model_path, trust_remote_code=True)
+sgl.set_default_backend("hf")  # 使用 Hugging Face 后端
+llm = sgl.Runtime(model_path, trust_remote_code=True, device="cuda")
 
 def generate_code(prompt: str) -> str:
     # 构建完整的提示词
