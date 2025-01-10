@@ -1,4 +1,4 @@
-from sglang import set_default_backend, SystemMessage, gen
+from sglang import set_default_backend, gen
 from sglang.backend.vllm import VLLMEngine
 
 # 设置模型参数
@@ -13,9 +13,6 @@ backend_options = {
 # 初始化VLLMEngine后端
 engine = VLLMEngine(**backend_options)
 set_default_backend(engine)
-
-# DeepSeek Coder的系统提示词
-system_message = SystemMessage("""我是一个 AI 编程助手，我可以帮你解决编程相关的问题。""")
 
 def generate_code(prompt: str) -> str:
     # 构建完整的提示词
